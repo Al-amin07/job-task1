@@ -4,7 +4,7 @@ const ProductCard = ({product}) => {
         <div  className="block shadow-xl p-3">
         <img
           alt=""
-          src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+          src={product.productImage}
           className="h-64 w-full object-cover sm:h-80 "
         />
       

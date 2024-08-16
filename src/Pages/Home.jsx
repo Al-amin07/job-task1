@@ -11,22 +11,24 @@ const Home = () => {
   const itemPerPage = 9;
   const [start, setStart] = useState(1);
   const [totalItem, setTotalItem] = useState(0);
+  const [category, setCategory] = useState('')
+  const [brand, setBrand] = useState('')
   const [search, setSearch] = useState("");
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setmaxPrice] = useState(100000);
   const [time, setTime] = useState(false);
   const axiosCommon = useAxiosCommon();
-  const [price, setPrice] = useState( {minPrice: 0, maxPrice: 100000} );
+  const [priceRange, setPriceRange] = useState(0)
   const [sort, setSort] = useState("");
   const {
     data: products = [],
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["products", start, sort, search, time, minPrice],
+    queryKey: ["products", start, sort, search, time, priceRange, category, brand],
     queryFn: async () => {
       const { data } = await axiosCommon.get(
-        `/all-products?start=${start}&sort=${sort}&search=${search}&time=${time}&minPrice=${minPrice}&maxPrice=${maxPrice}`
+        `/all-products?start=${start}&sort=${sort}&search=${search}&time=${time}&minPrice=${minPrice}&maxPrice=${maxPrice}&category=${category}&brand=${brand}`
       );
       setTotalItem(data.totalResult);
       return data.result;
@@ -54,15 +56,36 @@ const Home = () => {
     setMinPrice(minPrice)
     const maxPrice = parseInt(e.target.max.value);
     setmaxPrice(maxPrice)
+    setPriceRange(priceRange + 1)
     setStart(1);
   };
-console.log(price)
+  const resetAll = () => {
+    console.log('ress')
+    setStart(1);
+    setSearch('')
+    setMinPrice(0)
+    setmaxPrice(100000)
+    setSort('')
+    setCategory('')
+    setBrand('')
+
+  }
+
   return (
     <div className="mb-20">
       <Helmet>
         <title>Home | Trend Mart</title>
       </Helmet>
       <Search
+        setBrand={setBrand}
+        category={category}
+        brand={brand}
+        setCategory={setCategory}
+        minPrice={minPrice}
+        maxPrice={maxPrice}
+        setminPrice={setMinPrice}
+        setmaxPrice={setmaxPrice}
+        resetAll={resetAll}
         handleRange={handleRange}
         setSort={setSort}
         handleTime={handleTime}

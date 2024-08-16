@@ -18,9 +18,16 @@ const AllProducts = ({ products, isLoading }) => {
     );
   return (
     <div className=" mb-8 grid grid-cols-3 gap-6">
-      {products.map((product) => (
-        <ProductCard key={product._id} product={product} />
-      ))}
+      {
+        products && products.length > 0 ? products.map((product) => (
+          <ProductCard key={product._id} product={product} />
+        ))
+        :
+        <div className="min-h-[400px] lg:col-span-3 w-full flex flex-col items-center justify-center">
+          <h2 className="text-2xl font-medium text-center">No Data Available</h2>
+          <h2 className="text-lg  text-center text-slate-500">Please Select Other Category</h2>
+        </div>
+      }
     </div>
   );
 };
