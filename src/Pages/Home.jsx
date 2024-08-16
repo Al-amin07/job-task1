@@ -12,19 +12,21 @@ const Home = () => {
   const [start, setStart] = useState(1);
   const [totalItem, setTotalItem] = useState(0);
   const [search, setSearch] = useState("");
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setmaxPrice] = useState(100000);
   const [time, setTime] = useState(false);
   const axiosCommon = useAxiosCommon();
-  const [price, setPrice] = useState({ minPrice: 0, maxPrice: 100000 });
+  const [price, setPrice] = useState( {minPrice: 0, maxPrice: 100000} );
   const [sort, setSort] = useState("");
   const {
     data: products = [],
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["products", start, sort, search, time, price],
+    queryKey: ["products", start, sort, search, time, minPrice],
     queryFn: async () => {
       const { data } = await axiosCommon.get(
-        `/all-products?start=${start}&sort=${sort}&search=${search}&time=${time}&price=${price}`
+        `/all-products?start=${start}&sort=${sort}&search=${search}&time=${time}&minPrice=${minPrice}&maxPrice=${maxPrice}`
       );
       setTotalItem(data.totalResult);
       return data.result;
@@ -48,10 +50,10 @@ const Home = () => {
   const handleRange = async (e) => {
     e.preventDefault();
 
-    const minPrice = e.target.min.value;
-    const maxPrice = e.target.max.value;
-    console.log(price)
-    setPrice({ minPrice, maxPrice });
+    const minPrice = parseInt(e.target.min.value);
+    setMinPrice(minPrice)
+    const maxPrice = parseInt(e.target.max.value);
+    setmaxPrice(maxPrice)
     setStart(1);
   };
 console.log(price)
