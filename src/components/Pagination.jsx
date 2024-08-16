@@ -29,7 +29,7 @@ const Pagination = ({start, setStart, pages}) => {
         onClick={() => setStart(btn)}
         key={ind} className={`hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300
         ${btn === start && 'bg-teal-600 text-white'} 
-        transform bg-white rounded-md sm:inline dark:bg-gray-800 dark:text-gray-200 hover:bg-teal-600 dark:hover:bg-blue-500 hover:text-white text-lg dark:hover:text-gray-200`}>
+        transform bg-white rounded-md sm:inline  hover:bg-teal-600  hover:text-white text-lg `}>
           {btn}
         </button>
       ))}

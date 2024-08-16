@@ -15,6 +15,7 @@ const ProductCard = ({product}) => {
          ${product.price}
         </p>
         <p className="text-xl font-bold">{product.ratings}</p>
+        <p className="text-xl font-bold">{`${new Date(product.creationDate).getDate()}/${new Date(product.creationDate).getHours()}`}</p>
      </div>
       </div>
     );
