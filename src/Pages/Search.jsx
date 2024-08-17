@@ -18,6 +18,7 @@ const Search = ({
       <div className="flex w-full py-3 flex-col md:flex-row justify-center items-center gap-5 ">
         <div>
           <select
+            value={category}
             name="category"
             id="category"
             onChange={(e) => setCategory(e.target.value)}
@@ -74,7 +75,7 @@ const Search = ({
       <div className=" flex gap-8 justify-center">
         <div>
           <select
-            value={category === '' ? '' : category}
+            value={brand}
             name="category"
             id="category"
             onChange={(e) => setBrand(e.target.value)}
