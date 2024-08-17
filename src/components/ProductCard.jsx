@@ -1,7 +1,7 @@
 
 const ProductCard = ({product}) => {
     return (
-        <div  className="block hover:scale-105 w-[400px] shadow-xl p-3">
+        <div  className="block hover:scale-105 w-full md:w-[400px] shadow-xl p-3">
         <img
           alt=""
           src={product.productImage}
