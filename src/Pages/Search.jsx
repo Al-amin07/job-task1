@@ -47,7 +47,7 @@ const Search = ({
               className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
               type="text"
               name="search"
-              placeholder="Enter Job Title"
+              placeholder="Enter Product Name"
               aria-label="Enter Job Title"
             />
 
