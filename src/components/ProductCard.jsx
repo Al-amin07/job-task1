@@ -5,7 +5,7 @@ const ProductCard = ({product}) => {
         <img
           alt=""
           src={product.productImage}
-          className="h-52 filter shadow-lg shadow-custom-red  rounded-lg  w-full object-cover "
+          className=" h-52 filter shadow-lg shadow-custom-red p-2  rounded-lg  w-full object-cover "
         />
       
         <h3 className="mt-4 text-lg font-bold text-gray-900 sm:text-xl">{product.productName}</h3>
