@@ -6,6 +6,7 @@ import Pagination from "../components/Pagination";
 import { useState } from "react";
 import AllProducts from "./AllProducts";
 import Search from "./Search";
+import toast from "react-hot-toast";
 
 const Home = () => {
   const itemPerPage = 9;
@@ -53,8 +54,16 @@ const Home = () => {
     e.preventDefault();
 
     const minPrice = parseInt(e.target.min.value);
-    setMinPrice(minPrice)
     const maxPrice = parseInt(e.target.max.value);
+    if(minPrice < 0) {
+      toast.error('Please Enter valid Price Range')
+      return 
+    }
+    if(minPrice > maxPrice) {
+      toast.error('Please Enter valid Price Range')
+      return 
+    }
+    setMinPrice(minPrice)
     setmaxPrice(maxPrice)
     setPriceRange(priceRange + 1)
     setStart(1);

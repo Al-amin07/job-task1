@@ -6,14 +6,10 @@ const Navbar = () => {
   const navLinks = (
     <>
       <li>
-        <NavLink to={"/"}>Home</NavLink>
+        <NavLink className={'text-lg nav mr-4'} to={"/"}>Home</NavLink>
+        <NavLink className={'text-lg nav'} to={"/signup"}>Sign Up</NavLink>
       </li>
-      <li>
-        <NavLink to={"/all-product"}>Products</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/about"}>About Us</NavLink>
-      </li>
+    
     </>
   );
   return (
@@ -51,7 +47,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+        <ul className=" px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
         {user ? (

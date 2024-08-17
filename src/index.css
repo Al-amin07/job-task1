@@ -3,3 +3,11 @@
 @tailwind utilities;
 
 
+.nav.active{
+    text-decoration: underline;
+    text-decoration-color: teal;
+    color: teal;
+    font-weight: bold;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 10px;
+}
